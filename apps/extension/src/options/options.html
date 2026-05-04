@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RuType Settings</title>
+    <link rel="stylesheet" href="./options.css">
+  </head>
+  <body>
+    <main class="settings-shell">
+      <aside class="sidebar" aria-label="Menu cài đặt">
+        <div class="brand-card">
+          <div class="mini-bot" aria-hidden="true"><span></span></div>
+          <div>
+            <p>RUSTYPE</p>
+            <strong>Assistant</strong>
+          </div>
+        </div>
+
+        <nav class="settings-nav">
+          <a href="#general" class="active"><span aria-hidden="true">⌂</span>Chung</a>
+          <a href="#language"><span aria-hidden="true">◎</span>Ngôn ngữ</a>
+          <a href="#ai"><span aria-hidden="true">✦</span>AI</a>
+          <a href="#website"><span aria-hidden="true">▣</span>Website</a>
+          <a href="#dictionary"><span aria-hidden="true">▤</span>Từ điển</a>
+          <a href="#privacy"><span aria-hidden="true">◇</span>Riêng tư</a>
+          <a href="#about"><span aria-hidden="true">ⓘ</span>Giới thiệu</a>
+        </nav>
+      </aside>
+
+      <section class="settings-main">
+        <header class="page-hero">
+          <div>
+            <p class="eyebrow">RUSTYPE</p>
+            <h1>Cài đặt chung</h1>
+          </div>
+          <div class="hero-bot" aria-hidden="true"><span></span></div>
+        </header>
+
+        <section id="general" class="panel">
+          <h2>Chung</h2>
+          <label class="setting-row">
+            <span>Bật extension</span>
+            <span class="switch">
+              <input id="enabledToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <label class="setting-row">
+            <span>Bật kiểm tra chính tả</span>
+            <span class="switch">
+              <input id="spellcheckToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <label class="setting-row">
+            <span>Bật autocomplete (gợi ý từ khi gõ)</span>
+            <span class="switch">
+              <input id="autocompleteToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <div class="sub-setting">
+            <label class="field-row compact-field">
+              <span>Số từ gợi ý mặc định</span>
+              <select id="autocompleteSuggestionCountSelect">
+                <option value="1">1 từ</option>
+                <option value="2">2 từ</option>
+                <option value="3">3 từ</option>
+              </select>
+            </label>
+            <p class="hint">Khi có nhiều gợi ý: Tab để chuyển lựa chọn, Enter để chấp nhận.</p>
+          </div>
+        </section>
+
+        <section id="language" class="panel">
+          <h2>Ngôn ngữ</h2>
+          <label class="field-row">
+            <span>Ngôn ngữ kiểm tra</span>
+            <select id="checkLanguageSelect">
+              <option value="ru">Tiếng Nga</option>
+            </select>
+          </label>
+          <label class="field-row">
+            <span>Cặp dịch/giải thích</span>
+            <select id="selectionTranslateSelect">
+              <option value="google-ru-vi">Dịch: Nga ↔ Việt</option>
+              <option value="google-ru-en">Dịch: Nga ↔ Anh</option>
+              <option value="google-en-vi">Dịch: Anh ↔ Việt</option>
+            </select>
+          </label>
+          <label class="field-row">
+            <span>Giao diện</span>
+            <select id="themeSelect">
+              <option value="electric-light">Sáng điện</option>
+            </select>
+          </label>
+        </section>
+
+        <section id="ai" class="panel ai-panel">
+          <div class="panel-heading">
+            <div class="title-with-help">
+              <h2>Sử dụng AI</h2>
+              <button class="help-trigger" type="button" aria-describedby="aiHelpText" aria-label="Giải thích cách chọn AI provider">?</button>
+              <div id="aiHelpText" class="help-popover ai-help-popover" role="tooltip">
+                <p><strong>Sử dụng AI</strong> dùng để giải thích, tóm tắt hoặc viết lại đoạn bạn bôi đen. Text chỉ được gửi đi khi bạn bấm chuột phải và chọn <strong>RusType: Sử dụng AI với đoạn đã chọn</strong>.</p>
+                <div class="help-link-row">
+                  <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Tạo Gemini API key</a>
+                  <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank" rel="noopener noreferrer">Hướng dẫn Gemini</a>
+                  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">Tạo OpenAI API key</a>
+                  <a href="https://platform.openai.com/docs/quickstart" target="_blank" rel="noopener noreferrer">Hướng dẫn OpenAI</a>
+                </div>
+                <p><strong>Gemini</strong>: có free tier để test, nhưng dữ liệu free tier có thể được Google dùng để cải thiện sản phẩm. Ở một số khu vực như Nga, Gemini có thể kén VPN/IP sạch hơn.</p>
+                <p><strong>OpenAI/ChatGPT models</strong>: không phải ChatGPT Free/Plus; API thường cần billing/credit nhưng dễ sử dụng hơn.</p>
+                <p><strong>Lưu ý phí:</strong> đây là chi phí API bạn trả trực tiếp cho Gemini/OpenAI bằng API key của bạn, không phải phí thanh toán cho RusType extension.</p>
+                <p><strong>Giá tham khảo mỗi 1M token input/output:</strong></p>
+                <div class="help-price-grid" aria-label="Bảng giá tham khảo AI models">
+                  <span>Gemini 2.5 Flash-Lite</span><span>Free tier; trả phí $0.10 / $0.40</span>
+                  <span>Gemini 2.5 Flash</span><span>Free tier; trả phí $0.30 / $2.50</span>
+                  <span>Gemini 2.5 Pro</span><span>Free tier; trả phí $1.25-$2.50 / $10-$15</span>
+                  <span>GPT-5.4 Nano</span><span>$0.20 / $1.25</span>
+                  <span>GPT-5 Mini</span><span>$0.25 / $2.00</span>
+                  <span>GPT-4.1 Mini</span><span>$0.40 / $1.60</span>
+                  <span>GPT-5.4 Mini</span><span>$0.75 / $4.50</span>
+                  <span>GPT-5</span><span>$1.25 / $10.00</span>
+                  <span>GPT-4.1</span><span>$2.00 / $8.00</span>
+                  <span>GPT-5.4</span><span>$2.50 / $15.00</span>
+                  <span>GPT-5.5</span><span>$5.00 / $30.00</span>
+                </div>
+                <p class="help-fineprint">Giá có thể thay đổi. Xem thêm: <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Gemini pricing</a> và <a href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener noreferrer">OpenAI models</a>.</p>
+              </div>
+            </div>
+            <span class="pixel-badge">Gemini / OpenAI</span>
+          </div>
+          <label class="setting-row">
+            <span>Bật sử dụng AI</span>
+            <span class="switch">
+              <input id="aiEnabledToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <label class="field-row">
+            <span>Provider</span>
+            <select id="aiProviderSelect">
+              <option value="gemini">Gemini API</option>
+              <option value="openai">OpenAI API / ChatGPT models</option>
+            </select>
+          </label>
+          <label class="field-row">
+            <span>Model</span>
+            <select id="aiModelSelect"></select>
+          </label>
+          <label class="field-row">
+            <span>API key</span>
+            <input id="aiApiKeyInput" class="secret-input" type="password" autocomplete="off" spellcheck="false" placeholder="AIza...">
+          </label>
+          <p class="hint">Khi bật AI, đoạn được chọn sẽ gửi tới provider bạn chọn. Ngôn ngữ trả lời và tác vụ AI sẽ chọn ngay trong bảng hiện ra sau khi bôi đen text. Chi phí API là phí bạn trả trực tiếp cho Gemini/OpenAI, không phải phí của extension.</p>
+          <div class="inline-actions">
+            <button id="testAiButton" type="button">Test AI</button>
+            <p id="aiTestStatus" role="status"></p>
+          </div>
+        </section>
+
+        <section id="website" class="panel">
+          <div class="panel-heading">
+            <h2>Cài đặt website</h2>
+            <span class="pixel-badge">Theo domain</span>
+          </div>
+          <p class="hint">Mỗi dòng một domain. Có thể nhập example.com, extension sẽ áp dụng cho cả example.com và subdomain như mail.example.com.</p>
+          <div class="site-rules-grid">
+            <label>
+              <span>Chỉ bật trên các website này (allowlist)</span>
+              <textarea id="allowedHostsInput" rows="5" spellcheck="false" placeholder="Để trống = bật trên mọi website"></textarea>
+            </label>
+            <label>
+              <span>Tắt trên các website này (denylist)</span>
+              <textarea id="blockedHostsInput" rows="5" spellcheck="false" placeholder="docs.google.com"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section id="dictionary" class="panel dictionary-panel">
+          <div class="panel-heading">
+            <div class="title-with-help">
+              <h2>Từ điển cá nhân</h2>
+              <button class="help-trigger" type="button" aria-describedby="dictionaryHelpText" aria-label="Giải thích từ điển cá nhân">?</button>
+              <div id="dictionaryHelpText" class="help-popover" role="tooltip">
+                <p><strong>Từ điển cá nhân</strong> dùng để lưu những từ mà extension có thể tưởng là sai, nhưng với bạn là đúng.</p>
+                <p>Ví dụ:</p>
+                <ul>
+                  <li>Tên riêng: Хань, Дананг, Нгуен</li>
+                  <li>Từ chuyên ngành: tên sản phẩm, tên công ty, thuật ngữ nội bộ</li>
+                  <li>Từ viết tắt hoặc từ lóng bạn hay dùng</li>
+                  <li>Dạng từ hiếm</li>
+                </ul>
+                <p>Khi bạn thêm một từ vào từ điển cá nhân, RusType sẽ bỏ qua từ đó trong kiểm tra chính tả và không hiện gợi ý sửa nữa.</p>
+              </div>
+            </div>
+            <span id="dictionaryCount" class="pixel-badge">Tổng: 0 từ</span>
+          </div>
+          <div class="dictionary-add">
+            <input id="dictionaryWordInput" type="text" lang="ru" spellcheck="false" placeholder="Nhập từ tiếng Nga">
+            <button id="addDictionaryButton" type="button">+ Thêm từ</button>
+          </div>
+          <ul id="dictionaryList" class="dictionary-list" aria-label="Danh sách từ điển cá nhân"></ul>
+          <textarea id="dictionaryInput" hidden></textarea>
+
+          <div class="favorite-section">
+            <div class="panel-heading compact-heading">
+              <div>
+                <h3>Từ yêu thích autocomplete</h3>
+                <p class="hint">Các từ trong danh sách này được ưu tiên khi gợi ý, nhưng không được tự động bỏ qua lỗi chính tả. Khi autocomplete đang hiện, bấm Ctrl một lần để thêm nhanh gợi ý đang chọn.</p>
+              </div>
+              <span id="favoriteCount" class="pixel-badge">Ưu tiên: 0 từ</span>
+            </div>
+            <div class="dictionary-add">
+              <input id="favoriteWordInput" type="text" lang="ru" spellcheck="false" placeholder="Nhập từ muốn ưu tiên">
+              <button id="addFavoriteButton" type="button">+ Thêm ưu tiên</button>
+            </div>
+            <ul id="favoriteList" class="dictionary-list" aria-label="Danh sách từ yêu thích autocomplete"></ul>
+          </div>
+        </section>
+
+        <section id="privacy" class="panel info-panel">
+          <h2>Riêng tư & Bảo mật</h2>
+          <p>Chúng tôi tôn trọng quyền riêng tư của bạn.</p>
+          <label class="setting-row">
+            <span>Hiện preview text trong popup debug</span>
+            <span class="switch">
+              <input id="showTextPreviewToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <label class="setting-row">
+            <span>Bật dịch/AI từ menu chuột phải khi bôi đen text</span>
+            <span class="switch">
+              <input id="selectionActionsToggle" type="checkbox">
+              <span class="switch-track"></span>
+            </span>
+          </label>
+          <ul>
+            <li>Dữ liệu được xử lý an toàn qua backend local trong bản dev.</li>
+            <li>Không lưu trữ nội dung người dùng ngoài cài đặt extension.</li>
+            <li>Bạn có thể tắt kiểm tra chính tả bất cứ lúc nào.</li>
+          </ul>
+          <div class="privacy-summary">
+            <p><strong>Yandex Speller:</strong> chỉ dùng cho kiểm tra chính tả tiếng Nga khi bạn bật kiểm tra chính tả. Text được gửi trực tiếp tới Yandex Speller để lấy gợi ý sửa.</p>
+            <p class="required-attribution"><a href="http://api.yandex.ru/speller/" target="_blank" rel="noopener noreferrer">Проверка правописания: Яндекс.Спеллер</a></p>
+            <p><strong>Dịch:</strong> đoạn bạn bôi đen chỉ được gửi tới Google Translate sau khi bạn bấm chuột phải và chọn Dịch.</p>
+            <p><strong>AI:</strong> đoạn bạn bôi đen chỉ được gửi tới Gemini/OpenAI khi bạn bật AI, nhập API key và chọn Sử dụng AI.</p>
+          </div>
+          <div class="attribution-links" aria-label="Nguồn dịch vụ bên thứ ba">
+            <a href="http://api.yandex.ru/speller/" target="_blank" rel="noopener noreferrer">Yandex Speller</a>
+            <a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google Translate</a>
+            <a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer">Gemini API</a>
+            <a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer">OpenAI API</a>
+          </div>
+        </section>
+
+        <section id="about" class="panel about-panel">
+          <div class="mini-bot" aria-hidden="true"><span></span></div>
+          <div>
+            <h2>Giới thiệu</h2>
+            <p><strong>RuType Assistant</strong> giúp người Việt viết tiếng Nga đúng hơn với gợi ý từ, sửa lỗi và từ điển cá nhân.</p>
+            <p class="version">Phiên bản 0.6.13</p>
+          </div>
+        </section>
+
+        <footer class="actions">
+          <p id="saveStatus" role="status"></p>
+          <button id="saveButton" type="button">Lưu cài đặt</button>
+        </footer>
+      </section>
+    </main>
+    <script src="./options.js"></script>
+  </body>
+</html>

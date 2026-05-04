@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RusType</title>
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header class="popup-hero">
+        <div class="mascot" aria-hidden="true">
+          <span class="mascot-antenna"></span>
+          <span class="mascot-face">
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">RUSTYPE</p>
+          <h1>Trợ lý tiếng Nga</h1>
+          <span class="hero-badge">Sửa lỗi nhanh • Dịch bôi đen</span>
+        </div>
+        <span id="statusDot" class="status-dot" aria-label="Trạng thái extension"></span>
+      </header>
+
+      <section class="card control-card" aria-label="Điều khiển nhanh">
+        <label class="toggle-row pixel-row">
+          <span class="row-icon" aria-hidden="true">⏻</span>
+          <span class="row-label">Bật extension</span>
+          <span class="switch">
+            <input id="enabledToggle" type="checkbox">
+            <span class="switch-track"></span>
+          </span>
+        </label>
+        <label class="toggle-row pixel-row">
+          <span class="row-icon" aria-hidden="true">✦</span>
+          <span class="row-label">Autocomplete</span>
+          <span class="switch">
+            <input id="autocompleteToggle" type="checkbox">
+            <span class="switch-track"></span>
+          </span>
+        </label>
+        <label class="toggle-row pixel-row">
+          <span class="row-icon" aria-hidden="true">АБ</span>
+          <span class="row-label">Kiểm tra chính tả</span>
+          <span class="switch">
+            <input id="spellcheckToggle" type="checkbox">
+            <span class="switch-track"></span>
+          </span>
+        </label>
+      </section>
+
+      <section class="card detection-card">
+        <div class="card-title">
+          <span aria-hidden="true">⌕</span>
+          <h2>Trạng thái nhận diện</h2>
+        </div>
+        <dl>
+          <div class="status-row">
+            <dt>Website</dt>
+            <dd id="hostValue">-</dd>
+          </div>
+          <div class="status-row">
+            <dt>Ô nhập</dt>
+            <dd id="editorValue">-</dd>
+          </div>
+          <div class="status-row">
+            <dt>Từ hiện tại</dt>
+            <dd id="wordValue">-</dd>
+          </div>
+          <div class="status-row">
+            <dt>Đoạn text</dt>
+            <dd id="textValue">-</dd>
+          </div>
+          <div class="status-row">
+            <dt>Tiếng Nga</dt>
+            <dd><span id="russianValue" class="status-badge">Chưa phát hiện</span></dd>
+          </div>
+          <div class="status-row">
+            <dt>Ghi chú</dt>
+            <dd id="noteValue">-</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card quick-actions" aria-label="Hành động nhanh">
+        <button id="refreshButton" class="button button-primary" type="button">
+          <span aria-hidden="true">⌕</span>
+          Kiểm tra trang hiện tại
+        </button>
+        <button id="optionsButton" class="button button-secondary" type="button">
+          <span aria-hidden="true">⚙</span>
+          Mở cài đặt
+        </button>
+        <button id="dictionaryButton" class="button button-link" type="button">
+          <span aria-hidden="true">▤</span>
+          Từ điển cá nhân
+          <span aria-hidden="true">›</span>
+        </button>
+      </section>
+
+      <section class="mini-stats" aria-label="Thống kê nhanh">
+        <div class="stat-card stat-suggestion">
+          <span class="stat-icon" aria-hidden="true">💡</span>
+          <span class="stat-label">Gợi ý</span>
+          <strong id="suggestionValue">Bật</strong>
+        </div>
+        <div class="stat-card stat-dictionary">
+          <span class="stat-icon" aria-hidden="true">▤</span>
+          <span class="stat-label">Từ điển</span>
+          <strong id="dictionaryCountValue">0</strong>
+        </div>
+      </section>
+
+      <footer class="popup-footer">
+        <span aria-hidden="true">✦</span>
+        RuType Assistant • Viết tiếng Nga dễ hơn
+        <span aria-hidden="true">♡</span>
+      </footer>
+    </main>
+    <script src="./popup.js"></script>
+  </body>
+</html>

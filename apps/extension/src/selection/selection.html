@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RusType Selection</title>
+    <link rel="stylesheet" href="./selection.css">
+  </head>
+  <body>
+    <main class="selection-shell">
+      <header class="selection-header">
+        <div>
+          <p class="eyebrow">RUSTYPE</p>
+          <h1 id="actionTitle">Dịch đoạn đã chọn</h1>
+        </div>
+        <button id="closeButton" type="button" aria-label="Đóng">×</button>
+      </header>
+
+      <label class="field">
+        <span>Cặp dịch</span>
+        <select id="pairSelect" aria-label="Chọn cặp ngôn ngữ"></select>
+      </label>
+
+      <section id="aiControls" class="ai-controls" hidden>
+        <label class="ai-language-field">
+          <span>AI trả lời bằng</span>
+          <select id="aiOutputLanguageSelect" aria-label="Chọn ngôn ngữ AI trả lời">
+            <option value="vi">Tiếng Việt</option>
+            <option value="ru">Tiếng Nga</option>
+            <option value="en">Tiếng Anh</option>
+          </select>
+        </label>
+        <fieldset class="ai-task-options">
+          <legend>Tác vụ</legend>
+          <div class="ai-task-chips">
+            <label>
+              <input type="radio" name="aiTask" value="explain" checked>
+              <span>Giải thích</span>
+            </label>
+            <label>
+              <input type="radio" name="aiTask" value="summarize">
+              <span>Tóm tắt</span>
+            </label>
+            <label>
+              <input type="radio" name="aiTask" value="rewrite">
+              <span>Viết lại</span>
+            </label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="block">
+        <span>Đoạn chọn</span>
+        <p id="sourceText"></p>
+      </section>
+
+      <section class="block result-block">
+        <span id="resultLabel">Kết quả</span>
+        <p id="resultText">Đang dịch...</p>
+      </section>
+
+      <p id="sourceNote" class="source-note"></p>
+
+      <footer class="actions">
+        <button id="retryButton" type="button">Dịch lại</button>
+      </footer>
+    </main>
+    <script src="./selection.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+.DS_Store
+.vscode/
+AI_MEMORY.md
+apps/*/README.md
+docs/
+dist/
+node_modules/
+packages/*/README.md
+.env
+.env.*
+*.log
