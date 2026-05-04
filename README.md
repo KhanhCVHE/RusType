@@ -165,4 +165,4 @@ RusType hiện tích hợp với:
 
 ## Giấy Phép
 
-Dự án chưa chọn license. Tạm thời xem repository này là all rights reserved cho tới khi license được thêm chính thức.
+Dự án được phát hành theo MIT License. Xem chi tiết trong file `LICENSE`.
